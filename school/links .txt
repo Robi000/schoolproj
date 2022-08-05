@@ -1,0 +1,18 @@
+{% url 'home' %}
+{% url 'chooseClassroomScoring'  %}
+{% url 'chooseLectureScoring' x.class_room.id %}
+{% url 'chooseStudentScoring' id lect.id   %}
+{% url 'Scoring' student.classRoom.id id student.id %}
+{% url 'classrooms' %}
+{% url 'studentsView' class.id %}
+{% url 'studentDetailAndEdit' student.id %}
+{% url 'assignment' %}
+{% url 'assignmentClsCho' %}
+{% url 'assignmentDetail' class.id  %}
+{% url 'lectureCreate' %}
+{% url 'createClassRoom' %}
+{% url 'chooseClassroomRegister' %}
+{% url 'createStudent' class.id  %}
+{% url 'login' %}
+{% url 'register' %}
+{% url 'logout' %}

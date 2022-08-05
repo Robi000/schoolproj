@@ -1,0 +1,302 @@
+{% if request.user.is_authenticated %}
+{% if  request.user.admin %}
+<header class="mb-5">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background: #083638">
+    <div class="container-fluid px-5">
+      <a class="navbar-brand" href="{% url 'home' %}">School.X</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav w-75 mx-5 d-flex justify-content-around mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
+              <i class="fa fa-home" aria-hidden="true"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'lectureCreate' %}"><i class="fas fa-book-open"></i>
+              Lecture</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'createClassRoom' %}"><i class="fa fa-table" aria-hidden="true"></i>
+              Classroom</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'chooseClassroomRegister' %}"><i class="fa fa-user-plus"
+                aria-hidden="true"></i>
+              Student</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">
+              <i class="fas fa-marker"></i> Score</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'assignment' %}">Assign </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'classrooms' %}"> Class Room </a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </li>
+                    </ul>
+                  </li> -->
+          <!-- <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li> -->
+        </ul>
+        <!-- <form class="d-flex">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-outline-success" type="submit">
+                    Search
+                  </button>
+                </form> -->
+        <div class="ms-4 d-flex align-items-center justify-content-around pe-2">
+          <p class="btn text-light text-nowrap my-auto">
+            User: &nbsp;
+            <a href="" class="text-light text-decoration-none text-nowrap">{{request.user}}</a>
+          </p>
+
+          <div class="ms-2">
+            <button class="btn btn-outline-warning text-nowrap">
+              <a class="text-decoration-none text-light" href="{% url 'logout' %}">Log out</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+{% else %}
+<header class="mb-5">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background: #083638">
+    <div class="container-fluid px-5">
+      <a class="navbar-brand" href="{% url 'home' %}">School.X</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav w-75 mx-5 d-flex justify-content-around mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
+              <i class="fa fa-home" aria-hidden="true"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-current="page" href="#"><i class="fas fa-book-open"></i>
+              Lecture</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#"><i class="fa fa-table" aria-hidden="true"></i>
+              Classroom</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>
+              Student</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#"><i class="fas fa-chalkboard-teacher"></i>
+              Teacher</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'chooseClassroomScoring'  %}">
+              <i class="fas fa-marker"></i> Score</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Assign </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'classrooms' %}"> Class Room </a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </li>
+                    </ul>
+                  </li> -->
+          <!-- <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li> -->
+        </ul>
+        <!-- <form class="d-flex">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-outline-success" type="submit">
+                    Search
+                  </button>
+                </form> -->
+        <div class="ms-4 d-flex align-items-center justify-content-around pe-2">
+          <p class="btn text-light text-nowrap my-auto">
+            User: &nbsp;
+            <a href="" class="text-light text-decoration-none text-nowrap">{{request.user}} </a>
+          </p>
+
+          <div class="ms-2">
+            <button class="btn btn-outline-warning text-nowrap">
+              <a class="text-decoration-none text-light" href="{% url 'logout' %}">Log out</a>
+            </button>
+          </div>
+        </div>
+        <!-- <div
+                  class="ms-4 d-flex w-25 border align-items-center justify-content-around "
+                >
+                    <a class="btn btn-outline-success text-nowrap w-100">
+                      LogIn</a>
+                  </>
+                </div> -->
+      </div>
+    </div>
+  </nav>
+</header>
+{% endif %}
+{% else %}
+
+<header class="mb-5">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background: #083638">
+    <div class="container-fluid px-5">
+      <a class="navbar-brand" href="{% url 'home' %}">School.X</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav w-75 mx-5 d-flex justify-content-around mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">
+              <i class="fa fa-home" aria-hidden="true"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-current="page" href="#"><i class="fas fa-book-open"></i>
+              Lecture</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#"><i class="fa fa-table" aria-hidden="true"></i>
+              Classroom</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>
+              Student</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#"><i class="fas fa-chalkboard-teacher"></i> Teacher</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">
+              <i class="fas fa-marker"></i> Score</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Assign </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'classrooms' %}"> Class Room </a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </li> -->
+          <!-- <li class="nav-item">
+                  <a class="nav-link disabled">Disabled</a>
+                </li> -->
+        </ul>
+        <!-- <form class="d-flex">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form> -->
+        <!-- <div
+                class="ms-4 d-flex align-items-center justify-content-around pe-2"
+              >
+                <p class="btn text-light text-nowrap my-auto">
+                  User: &nbsp;
+                  <a href="" class="text-light text-decoration-none text-nowrap"
+                    >Robel Abebe</a
+                  >
+                </p>
+
+                <div class="ms-2">
+                  <button class="btn btn-outline-warning text-nowrap">
+                    <a class="text-decoration-none text-light" href="">Log out</a>
+                  </button>
+                </div>
+              </div> -->
+        <div class="ms-4 d-flex w-25 border align-items-center justify-content-around ">
+          <a class="btn btn-outline-success text-nowrap w-100" href="{% url 'login' %} ">
+            LogIn</a>
+          </>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+{% endif %}

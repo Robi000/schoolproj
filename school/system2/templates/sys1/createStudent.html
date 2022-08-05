@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <form action="" method="post">
+          {% csrf_token %}
+          {% for fild in form %}
+          <div class="mb-4">
+            {{fild.label}}
+            {{fild}}
+          </div>
+          {% endfor %} <br>
+          <div class="d-grid gap-2 col-6 mx-auto mt-4">
+            <button class="btn btn-outline-success" type="submit">Submit</button>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="col-md-4 ms-5">
+        <h3 class="mb-3 text-center"> <i class="fa fa-child" aria-hidden="true"></i> Students in this class </h3>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          {% for student in students %}
+          <a href="#" class="btn btn-primary" type="button">{{ student.name }}</a>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+</main>
+
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-4">
+                {% if request.user.admin %}
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn btn-outline-success ">Submit</button>
+                </form>
+                {% else %}
+                <p> You'r not log in or Your not Admin. Do you wnat to <a href="{% url 'login' %} ">login</a> ?</p>
+                {% endif %} </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock content %}

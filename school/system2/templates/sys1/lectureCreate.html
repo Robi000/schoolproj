@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <form action="" method="post">
+          {% csrf_token %}
+          <input type="text" class="form-control my-2" placeholder="lecture name" name="lecture" id="" />
+          <button class="btn btn-outline-success mt-3" type="submit"><i class="fa fa-plus" aria-hidden="true"></i>
+            Submit</button>
+        </form>
+      </div>
+      <div class="col-md-4 ms-5">
+        <h1 class="mb-3 text-center"> <i class="fas fa-chalkboard    "></i> Created lectures</h1>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          {% for list in Llists %}
+          <a href="#" class="btn btn-primary" type="button">{{ list.name }}</a>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+{% endblock content %}

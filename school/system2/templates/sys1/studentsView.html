@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+  <div class="container">
+    <div class="row mb-4">
+      <form action="" method="get">
+        <label for="exampleFormControlInput1" class="form-label"><i class="fa fa-search" aria-hidden="true"></i> Search
+          Student Here</label>
+        <input type="text" class="form-control" name="q" id="exampleFormControlInput1"
+          placeholder="student name ... Hit enter">
+        {% comment %} <input type="text" name="q" placeholder="student name ... Hit enter" /> {% endcomment %}
+      </form>
+    </div>
+    <div class="row my-2">
+      {% for student in students %}
+      <div class="col-md-3">
+        <a href="{% url 'studentDetailAndEdit' student.id %}" class="text-decoration-none">
+          <div class="card border-{% cycle 'secondary' 'success' 'warning' 'info' %} mb-3 p-2" style="max-width: 18rem">
+            <div class="card-header text-dark">Student: {{ student.name }}</div>
+            <div class="card-body text-{% cycle 'secondary' 'success' 'warning' 'info' %}">
+              <h5 class="card-title">score</h5>
+
+              <div>
+                <div>
+                  <h4 class="text-muted">Average</h4>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar"
+                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:{{student.avg}}%">
+                  </div>
+                </div>
+                <h4 class="text-dark">{{student.avg}}%</h4>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+
+
+{% endblock content %}

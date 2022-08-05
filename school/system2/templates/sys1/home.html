@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+  <div class="container">
+    <div class="row justify-content-end mb-5">
+      <div class="col-3"><a href="{% url 'announcement' %}" class="btn btn-dark text-light "> <i class="fa fa-plus"
+            aria-hidden="true"></i>
+          Create announcement</a></div>
+
+    </div>
+    {% for acc  in announcements %}
+    <div class="row justify-content-around mb-4">
+
+      <div class="col-8">
+        <div class="card text-center">
+          <div class="card-header">
+            <h3 class="text-muted"> by: {{acc.user|capfirst}} </h3>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{acc.title}}</h5>
+            <p class="card-text">
+              {{acc.body}}
+            </p>
+          </div>
+          <div class="card-footer text-muted">{{acc.created|timesince}}</div>
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+    <div class="row"></div>
+  </div>
+
+
+
+
+</main>
+<footer></footer>
+
+{% endblock content %}

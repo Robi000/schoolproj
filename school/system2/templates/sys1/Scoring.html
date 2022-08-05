@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row mt-5">
+            <h3>
+                {{score.student.name}} -- previous score:
+                <span style="color: red">{{score.score}}</span>
+            </h3>
+        </div>
+        <div class="row mt-2">
+            <form class="row g-3">
+                <div class="col-auto">
+                    <label for="inputPassword2" class="visually-hidden">Add Mark ...</label>
+                    <input type="number" class="form-control" id="d" name="result" placeholder="+ marks">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3"> <i class="fa fa-plus" aria-hidden="true"></i>
+                        Add Mark</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</main>
+
+
+{% endblock content %}

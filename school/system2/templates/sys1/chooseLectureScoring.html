@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+  <div class="container">
+    <h1 class="text-center mb-5">Choose leacture ...</h1>
+    <div class="row mt-5">
+      <div class="d-grid gap-2 col-6 mx-auto">
+        {% for lec in C_T %}
+        {% for lect in lec.lecture.all %}
+        <a href="{% url 'chooseStudentScoring' id lect.id   %}" class="btn btn-primary" type="button">{{lect.name}}</a>
+        {% endfor %}
+        {% endfor %}
+
+      </div>
+
+    </div>
+  </div>
+</main>
+
+
+{% endblock content %}

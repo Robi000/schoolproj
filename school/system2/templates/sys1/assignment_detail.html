@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="accordion" id="accordionExample">
+        {% for ct in C_T %}
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a{{ct.id}}"
+              aria-expanded="true" aria-controls="collapseOne">
+              {{ct.Teacher}}
+            </button>
+          </h2>
+          <div id="a{{ct.id}}" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              {% for ctl in ct.lecture.all %}
+              <p>{{ctl.name}} </p>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+
+
+{% endblock content %}
